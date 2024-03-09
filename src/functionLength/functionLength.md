@@ -10,11 +10,13 @@ Implement a function `functionLength` to return the number of parameters a funct
 
 
 ### Examples
-function greet() {}
-function greetPerson(name) {}
+`
+    function greet() {}
+    function greetPerson(name) {}
 
-functionLength(greet); // 0
-functionLength(greetPerson); // 1
+    functionLength(greet); // 0
+    functionLength(greetPerson); // 1
+`
 
 
 ### Resources
