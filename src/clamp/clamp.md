@@ -1,14 +1,14 @@
 # Clamp
 
-Implement a function clamp to restrict a number within the inclusive lower and upper bounds.
+Implement a function `clamp` to restrict a number within the inclusive lower and upper bounds.
 
 ### Arguments
-1. value(number): number to clamp
-2. lower(number): lower boundary
-3. upper(number): upper boundary
+1. `value(number)`: number to clamp
+2. `lower(number)`: lower boundary
+3. `upper(number)`: upper boundary
 
 ### Returns
-(number): clamped number
+`(number)`: clamped number
 
 
 ### Examples
