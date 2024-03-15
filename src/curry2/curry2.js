@@ -1,22 +1,43 @@
+// function curry(func) {
+
+//     return function curriedFunc(...args) {
+//         if(args.length >= func.length) {
+//             return func.call(this, ...args);
+//         }
+//         else {
+
+//             const intermediateCurriedFunc = (...argList) => {
+//                 if(argList.length === 0) {
+//                     return curriedFunc.call(this, ...args);
+//                 }
+//                 else {
+//                     return curriedFunc.call(this, ...args, ...argList)
+//                 }
+//             }
+
+//             return intermediateCurriedFunc;
+//         }
+//     }
+// }
+
 function curry(func) {
 
     return function curriedFunc(...args) {
+        const context = this;
         if(args.length >= func.length) {
             return func.call(this, ...args);
         }
         else {
-
-            const intermediateCurriedFunc = (...argList) => {
+            return function intermediateCurriedFunc(...argList) {
                 if(argList.length === 0) {
-                    return curriedFunc.call(this, ...args);
+                    return curriedFunc.call(context, ...args);
                 }
                 else {
-                    return curriedFunc.call(this, ...args, ...argList)
+                    return curriedFunc.call(context, ...args, ...argList);
                 }
             }
-
-            return intermediateCurriedFunc;
         }
+
     }
 }
 
