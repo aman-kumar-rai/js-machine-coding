@@ -1,22 +1,46 @@
-function curry(func) {
+// function curry(func) {
 
+//     return function curriedFunc(...args) {
+//         const context = this;
+//         if(args.length >= func.length) {
+//             return func.call(this, ...args);
+//         }
+//         else {
+//             return function intermediateCurriedFunc(arg) {
+//                 if(arg === undefined) {
+//                     return curriedFunc.call(context, ...args);
+//                 }
+//                 else {
+//                     return curriedFunc.call(context, ...args, arg);
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+function curry(func) {
+    
     return function curriedFunc(...args) {
-        const context = this;
         if(args.length >= func.length) {
             return func.call(this, ...args);
         }
         else {
-            return function intermediateCurriedFunc(arg) {
+            const intermediateCurriedFunc = (arg) => {
                 if(arg === undefined) {
-                    return curriedFunc.call(context, ...args);
+                    return curriedFunc.call(this, ...args);
                 }
                 else {
-                    return curriedFunc.call(context, ...args, arg);
+                    return curriedFunc.call(this, ...args, arg);
                 }
             }
+
+            return intermediateCurriedFunc;
         }
     }
 }
+
+
 
 
 function multiplyThreeNumbers(a, b, c) {
